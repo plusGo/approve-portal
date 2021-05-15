@@ -3,6 +3,7 @@ import {Loading} from '../component/loading/loading';
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import ProcessCreatePage from '../page/console/process/process-create/process-create';
 import PortalPage from '../page/portal/portal';
+import {useEffect} from 'react';
 
 /**
  * 路由配置
@@ -33,7 +34,10 @@ export const ROUTER_CONFIG: RouteConfigProps[] = [
                 path: '/console/process/create',
                 exact: true,
                 preload: false,
-                component: ProcessCreatePage
+                component: Loadable({
+                    loader: () => import('../page/console/process/process-create/process-create'),
+                    loading: Loading,
+                })
             },
             {name: 'process', path: '/console/process', exact: true, preload: false, component: ProcessCreatePage},
         ]
@@ -42,13 +46,15 @@ export const ROUTER_CONFIG: RouteConfigProps[] = [
         name: 'portal',
         path: '/portal',
         exact: false,
-        preload: true,
         component: PortalPage
     },
 ];
 
 
-export function RouterOutlet(): JSX.Element {
+export function RouterOutlet(props:any): JSX.Element {
+    useEffect(() => {
+        ROUTER_CONFIG.filter(route => route.preload && route.component.preload());
+    }, []);
 
     return (
         <BrowserRouter>
