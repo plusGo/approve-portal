@@ -57,7 +57,7 @@ export function RouterOutlet(): JSX.Element {
                     ROUTER_CONFIG.map((config, index) => (
                         <Route key={index} exact={config.exact} path={config?.path}
                                render={props => (
-                                   <config.component {...props} childRoutes={config?.routes}/>
+                                   <config.component {...props} routes={config?.routes}/>
                                )}/>
                     ))
                 }

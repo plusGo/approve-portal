@@ -3,16 +3,12 @@ import {Layout, Menu} from 'antd';
 import './side-layout.scss';
 import {Link} from 'react-router-dom';
 import {LayoutHeader} from '../header/layout-header';
+import {ComponentProps} from '../../model/props/component-props';
 
-const {Header, Content} = Layout;
-const {SubMenu} = Menu;
+const {Content} = Layout;
 
-export interface SideLayoutProps {
-    children?: JSX.Element | JSX.Element[];
-}
-
-export const SideLayout = (props: SideLayoutProps): JSX.Element => {
-
+export const SideLayout = (props: ComponentProps): JSX.Element => {
+    const menuWidth = 240;
     return (
         <Layout>
             <LayoutHeader/>
@@ -20,9 +16,7 @@ export const SideLayout = (props: SideLayoutProps): JSX.Element => {
 
                 <div className="side-layout-content-menu">
                     <Menu
-                        style={{width: 240}}
-                        defaultSelectedKeys={['1']}
-                        defaultOpenKeys={['sub1']}
+                        style={{width: menuWidth}}
                         mode="inline"
                     >
                         <Menu.ItemGroup key="g1" title="流程">
@@ -45,7 +39,7 @@ export const SideLayout = (props: SideLayoutProps): JSX.Element => {
                 </div>
 
                 <div className="side-layout-content-inner">
-                    {props.children}
+                    {props?.children}
                 </div>
             </Content>
         </Layout>
