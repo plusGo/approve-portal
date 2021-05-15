@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {Icon} from 'antd-mobile';
-import './loading.scss';
 
 export interface LoadingProps {
     error?: boolean;
@@ -23,7 +21,6 @@ export const Loading = (props: LoadingProps): JSX.Element => {
     return (
         <div className="loading-wrapper">
             <div className="loading-inner">
-                <Icon type="loading" size="lg"/>
                 <div>{message}</div>
             </div>
         </div>

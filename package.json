@@ -2,7 +2,20 @@
   "name": "task-approve-portal",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "cross-env PORT=4200 react-scripts start ",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
+    "antd": "^4.15.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -10,17 +23,14 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "@types/react-loadable": "^5.5.5",
+    "@types/react-router-dom": "^5.1.7",
+    "cross-env": "^7.0.3",
+    "node-sass": "^4.9.4",
     "react-scripts": "4.0.3",
+    "sass-loader": "^8.0.2",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
