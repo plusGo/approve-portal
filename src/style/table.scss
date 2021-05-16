@@ -1,5 +1,13 @@
 .common-table {
+  &-search {
+    button + button {
+      margin-left: 8px;
+    }
+  }
+
   &-ops {
+    padding: 16px 0;
+
     button + button {
       margin-left: 8px;
     }
